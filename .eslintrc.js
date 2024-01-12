@@ -29,12 +29,13 @@ module.exports = {
     },
     'plugins': [
         '@typescript-eslint',
-        'react'
+        'react',
+        'prettier',
     ],
     'rules': {
         'indent': [
             'error',
-            4
+            2
         ],
         'linebreak-style': [
             'error',
@@ -47,6 +48,7 @@ module.exports = {
         'semi': [
             'error',
             'never'
-        ]
+        ],
+        'prettier/prettier': ['error'],
     }
 }
