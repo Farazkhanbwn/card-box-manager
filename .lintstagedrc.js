@@ -7,6 +7,6 @@ const buildPrettierCommand = (filenames) =>
   `prettier --write ${filenames.map((f) => path.relative(process.cwd(), f)).join(' ')}`
 
 module.exports = {
-  '*.{ts,tsx}': [buildEslintCommand],
-  '*.{ts,tsx,css,scss}': [buildPrettierCommand],
+  '*.{ts,tsx}': [buildEslintCommand, buildPrettierCommand],
+  '*.{css,scss}': [buildPrettierCommand],
 }
