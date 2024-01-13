@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { FC } from 'react'
 import CardContainerColumn from './card-container-column'
 
-const CardContainer = () => {
+interface CardContainerProps {
+  totalCards: number
+}
+
+const CardContainer: FC<CardContainerProps> = ({ totalCards }) => {
+  const cardsArray = Array.from({ length: totalCards })
   return (
     <div className="w-full flex gap-8 justify-between mx-auto mt-8 flex-1">
-      <CardContainerColumn title="Column 1" />
-      <CardContainerColumn title="Column 2" />
-      <CardContainerColumn title="Column 3" />
-      <CardContainerColumn title="Column 4" />
+      {cardsArray.map((_, index) => (
+        <CardContainerColumn columnIndex={index} heading={`column ${index}`} key={`card-container-${index}`} />
+      ))}
     </div>
   )
 }
