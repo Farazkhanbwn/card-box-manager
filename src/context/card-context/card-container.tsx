@@ -1,10 +1,25 @@
-import React, { FC, PropsWithChildren, useState } from 'react'
+import React, { FC, PropsWithChildren, useEffect, useState } from 'react'
 import { CardDefaultValue, CardInterface } from './card-interface'
 import { CardProvider } from './card-context'
 import { uuid } from '@/shared/utils'
 
 const CardContextContainer: FC<PropsWithChildren> = ({ children }) => {
   const [state, setState] = useState<CardInterface>(CardDefaultValue)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const cardsDataAsString = localStorage.getItem('cards')
+    const cards = JSON.parse(cardsDataAsString ?? '[]')
+    setState({
+      ...state,
+      cards,
+    })
+    setLoading(false)
+  }, [])
+
+  useEffect(() => {
+    !loading && localStorage.setItem('cards', JSON.stringify(state.cards))
+  }, [state])
 
   const addCard = (title: string) => {
     setState((prevState) => ({

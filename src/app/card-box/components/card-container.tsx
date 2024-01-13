@@ -1,12 +1,10 @@
 import React, { FC } from 'react'
 import CardContainerColumn from './card-container-column'
+import { useCardContext } from '@/context/card-context/card-context'
 
-interface CardContainerProps {
-  totalCards: number
-}
-
-const CardContainer: FC<CardContainerProps> = ({ totalCards }) => {
-  const cardsArray = Array.from({ length: totalCards })
+const CardContainer: FC = () => {
+  const { cardsColumnCount } = useCardContext()
+  const cardsArray = Array.from({ length: cardsColumnCount })
   return (
     <div className="w-full flex gap-8 justify-between mx-auto mt-8 flex-1">
       {cardsArray.map((_, index) => (
