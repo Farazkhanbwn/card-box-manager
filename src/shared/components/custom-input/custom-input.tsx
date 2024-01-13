@@ -1,6 +1,6 @@
 import React from 'react'
-import style from './custom-input.styles.module.css'
 import { CustomInputProps } from './custom-input.types'
+import { customInput, customInputError, customInputFocus, customInputLabel } from './custom-input.styles'
 
 const CustomInput: React.FC<CustomInputProps> = ({
   label,
@@ -17,14 +17,14 @@ const CustomInput: React.FC<CustomInputProps> = ({
   return (
     <div>
       {label && (
-        <label htmlFor={name} className={style['custom-input_label']}>
+        <label htmlFor={name} className={customInputLabel}>
           {label}
         </label>
       )}
       <input
         name={name}
         type={type}
-        className={`${style['custom-input']} ${className}`}
+        className={`${customInput} ${customInputFocus} ${className}`}
         value={value}
         onChange={onChange}
         readOnly={readOnly}
@@ -32,7 +32,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
         placeholder={placeholder}
         id={name}
       />
-      {errorMessage && <div className={style['custom-input__error']}>{errorMessage}</div>}
+      {errorMessage && <div className={customInputError}>{errorMessage}</div>}
     </div>
   )
 }

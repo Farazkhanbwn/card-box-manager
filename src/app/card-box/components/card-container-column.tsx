@@ -13,7 +13,7 @@ const CardContainerColumn: FC<CardContainerColumnProps> = ({ columnIndex, headin
   const { cards } = useCardContext()
   return (
     <div
-      className={`max-w-[32rem] min-w-[25rem] w-full min-h-full bg-[#fafafa] shadow-lg p-8 overflow-y-scroll flex flex-col gap-4 ${className}`}
+      className={`max-w-[32rem] min-w-[25rem] w-full min-h-full bg-[#fafafa] shadow-lg p-8 flex flex-col gap-4 ${className}`}
     >
       {heading}
 
