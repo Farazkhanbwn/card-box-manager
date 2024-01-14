@@ -11,9 +11,11 @@ interface CardProps {
 }
 
 const Card: FC<CardProps> = ({ id, columnIndex, title }) => {
-  const { moveCardToNextColumn, moveCardToPreviousColumn, deleteCard, cardsColumnCount } = useCardContext()
+  const { moveCardToNextColumn, moveCardToPreviousColumn, deleteCard, cardsColumnCount, onUpdateCardRequest } =
+    useCardContext()
   const isNextButtonDisabled = columnIndex > cardsColumnCount - 2
   const isBackButtonDisabled = columnIndex <= 0
+
   return (
     <div
       id={`${columnIndex}`}
@@ -31,7 +33,11 @@ const Card: FC<CardProps> = ({ id, columnIndex, title }) => {
         >
           Back
         </CustomButton>
-        <CustomButton type={CustomButtonTypes.SECONDARY} className="rounded-none flex-1">
+        <CustomButton
+          type={CustomButtonTypes.SECONDARY}
+          className="rounded-none flex-1"
+          onClick={() => onUpdateCardRequest(id)}
+        >
           Edit
         </CustomButton>
         <CustomButton type={CustomButtonTypes.SECONDARY} className="rounded-none flex-1" onClick={() => deleteCard(id)}>

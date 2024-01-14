@@ -3,18 +3,34 @@ import CustomButton from '@/shared/components/custom-button/custom-button'
 import { CustomButtonTypes } from '@/shared/components/custom-button/custom-button.types'
 import CustomInput from '@/shared/components/custom-input/custom-input'
 import { CustomInputTypes } from '@/shared/components/custom-input/custom-input.types'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const CardForm = () => {
-  const { addCard } = useCardContext()
+  const { addCard, updatedCardItem, updateCard } = useCardContext()
   const [cardTitle, setCardTitle] = useState('')
 
-  const onAddCard = () => {
-    if (cardTitle) {
+  const handleCardOperations = () => {
+    if (updatedCardItem) {
+      updateCard(cardTitle)
+    } else {
       addCard(cardTitle)
-      setCardTitle('')
     }
+    setCardTitle('')
   }
+
+  const onCardSubmit = () => {
+    if (!cardTitle) {
+      return
+    }
+    handleCardOperations()
+  }
+
+  useEffect(() => {
+    if (updatedCardItem) {
+      setCardTitle(updatedCardItem.title)
+    }
+  }, [updatedCardItem])
+
   return (
     <div className="container mx-auto flex justify-center gap-6">
       <CustomInput
@@ -25,8 +41,8 @@ const CardForm = () => {
           setCardTitle(e.target.value)
         }}
       />
-      <CustomButton type={CustomButtonTypes.PRIMARY} onClick={onAddCard}>
-        Add Box
+      <CustomButton type={CustomButtonTypes.PRIMARY} onClick={onCardSubmit}>
+        {updatedCardItem ? 'Update' : 'Add'} Box
       </CustomButton>
     </div>
   )

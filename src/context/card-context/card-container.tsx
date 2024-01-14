@@ -63,8 +63,38 @@ const CardContextContainer: FC<PropsWithChildren> = ({ children }) => {
     })
   }
 
+  const onUpdateCardRequest = (id: string) => {
+    const targetCard = state.cards.find((card) => {
+      return card.id === id
+    })
+    setState({
+      ...state,
+      updatedCardItem: targetCard,
+    })
+  }
+
+  const updateCard = (title: string) => {
+    if (!state.updatedCardItem) {
+      return
+    }
+    const findCardIndex = state.cards.findIndex((card) => card.id === state.updatedCardItem?.id)
+    const targetCard = state.cards[findCardIndex]
+    targetCard.title = title
+    setState({ ...state, updatedCardItem: undefined })
+  }
+
   return (
-    <CardProvider value={{ ...state, addCard, moveCardToNextColumn, moveCardToPreviousColumn, deleteCard }}>
+    <CardProvider
+      value={{
+        ...state,
+        addCard,
+        moveCardToNextColumn,
+        moveCardToPreviousColumn,
+        deleteCard,
+        onUpdateCardRequest,
+        updateCard,
+      }}
+    >
       {children}
     </CardProvider>
   )
