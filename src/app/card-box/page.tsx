@@ -1,7 +1,7 @@
 import CustomHeading from '@/shared/components/custom-heading/custom-heading'
 import React from 'react'
 import CardContainer from './components/card-container'
-import CardForm from './components/card-from'
+import CardForm from './components/card-form'
 
 const CardBox = () => {
   return (
