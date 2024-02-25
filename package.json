@@ -13,7 +13,8 @@
     "lint:fix": "next lint --fix",
     "format": "prettier --write src/.",
     "prepare": "husky install",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "test": "jest a.js"
   },
   "dependencies": {
     "next": "14.0.4",

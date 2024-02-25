@@ -16,7 +16,7 @@ export interface CardInterface {
   moveCardToPreviousColumn: (id: string) => void
 }
 
-const DEFAULT_CARDS_COLUMN_COUNT = 4
+const DEFAULT_CARDS_COLUMN_COUNT = 5
 
 export const CardDefaultValue: CardInterface = {
   cards: [],
