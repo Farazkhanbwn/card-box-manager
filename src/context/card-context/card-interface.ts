@@ -32,7 +32,7 @@ export const CardDefaultValue: CardInterface = {
     throw new Error('Function not implemented.')
   },
   moveCardToNextColumn: function (): void {
-    throw new Error('Function not implemented.')
+    throw new Error('Function not implemented')
   },
   moveCardToPreviousColumn: function (): void {
     throw new Error('Function not implemented.')
