@@ -5,7 +5,7 @@ import CardForm from './components/card-from'
 
 const CardBox = () => {
   return (
-    <div className="py-12 px-8 min-h-screen flex flex-col bg-white">
+    <div className="py-12 px-8 min-h-screen flex flex-col bg-white ">
       <CustomHeading type="primary" className="text-center">
         Home Page
       </CustomHeading>
