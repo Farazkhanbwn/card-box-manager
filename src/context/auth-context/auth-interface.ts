@@ -7,7 +7,7 @@ export interface AuthInterface {
 export const authStateDefaults: AuthInterface = {
   isAuthenticated: false,
   login: function (): Promise<void> {
-    throw new Error('Function not implemented')
+    throw new Error('Function not implemented.')
   },
   logout: function (): void {
     throw new Error('Function not implemented.')
