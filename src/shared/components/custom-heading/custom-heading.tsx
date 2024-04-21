@@ -7,7 +7,11 @@ interface CustomHeadingProps extends PropsWithChildren {
 }
 
 const CustomHeading: FC<CustomHeadingProps> = ({ children, type, className }) => {
-  return <h1 className={`${headingStyles[type]} ${className}`}>{children}</h1>
+  return (
+    <h1 data-testid="custom-heading" className={`${headingStyles[type]} ${className}`}>
+      {children}
+    </h1>
+  )
 }
 
 export default CustomHeading

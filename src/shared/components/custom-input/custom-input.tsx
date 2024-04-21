@@ -22,6 +22,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
         </label>
       )}
       <input
+        data-testid={'custom-input'}
         name={name}
         type={type}
         className={`${customInput} ${customInputFocus} ${className}`}
