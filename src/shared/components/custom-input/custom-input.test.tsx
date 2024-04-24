@@ -21,10 +21,10 @@ describe('Page', () => {
   })
 
   it('Expected Name faraz', () => {
-    render(<CustomInput type={CustomInputTypes.TEXT} name="faraz khan" />)
+    render(<CustomInput type={CustomInputTypes.TEXT} name="faraz" />)
 
     const heading = screen.getByTestId('custom-input')
 
-    expect(heading).toHaveAttribute('name', 'faraz khan')
+    expect(heading).toHaveAttribute('name', 'faraz')
   })
 })
