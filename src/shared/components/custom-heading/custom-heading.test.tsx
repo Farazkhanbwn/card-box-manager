@@ -12,9 +12,9 @@ describe('Page', () => {
   })
 
   it('renders a heading', () => {
-    render(<CustomHeading type={'primary'}>Test string</CustomHeading>)
+    render(<CustomHeading type={'primary'}>Test</CustomHeading>)
 
-    const heading = screen.getByText(/test string/i)
+    const heading = screen.getByText(/test/i)
 
     expect(heading).toBeInTheDocument()
   })
